@@ -15,7 +15,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<String> _products = ['Food Tester', 'Food Vaganza'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,27 +32,26 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 10.0,bottom: 10.0),
+            margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: RaisedButton(
               child: Text('ADD PRODUCT'),
-              onPressed: (){ },
+              onPressed: () {},
             ),
           ),
           Column(
-            children: <Widget>[
-              Card(
-                child: Column(
+            children: 
+              _products.map((el) {
+                return Card(
+                    child: Column(
                   children: <Widget>[
                     Image.asset('assets/food.jpg'),
-                    Text('My Delicious Food'),
+                    Text(_products[0]),
                   ],
-                )
-              ),
-            ],
+                ));
+              }).toList(),
           ),
-          
         ],
-      ), 
+      ),
     );
   }
 }
