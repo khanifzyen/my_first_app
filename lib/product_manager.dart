@@ -7,7 +7,10 @@ class ProductManager extends StatefulWidget {
   ProductManager(this.startingProduct);
 
   @override
-  _ProductManagerState createState() => _ProductManagerState();
+  _ProductManagerState createState() {
+    print('[ProductManagerState] createState()');
+    return _ProductManagerState();
+  }
 }
 
 class _ProductManagerState extends State<ProductManager> {
@@ -17,11 +20,13 @@ class _ProductManagerState extends State<ProductManager> {
   void initState() {
     super.initState();
     _products.add(widget.startingProduct);
-    print(_products);
+    print('[ProductManagerState] initstate()');
+    //print(_products);
   }
 
   @override
   Widget build(BuildContext context) {
+    print('[ProductManagerState] build()');
     return Column(
       children: <Widget>[
         Container(
