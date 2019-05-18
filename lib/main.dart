@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('My First App'),
       ),
-      body: ProductManager(),
+      body: ProductManager('Food Tester'),
     );
   }
 }
